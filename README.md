@@ -1,6 +1,6 @@
 # Vue仿虾米音乐UI
 
-[](./1.png)
+[](https://raw.githubusercontent.com/pumelotea/xiami-musik/master/doc/pic/1.png)
 
 ### 进度
 - 整体框架实现
