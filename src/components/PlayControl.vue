@@ -70,12 +70,23 @@
           <i class="icon icon-loop"></i>
         </div>
       </div>
+
+      <div class="right-item">
+        <div class="right-fun-icon-wrap">
+          <VolumeControl/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {}
+  import VolumeControl from '@/components/VolumeControl'
+  export default {
+    components:{
+      VolumeControl
+    }
+  }
 </script>
 
 <style scoped>
