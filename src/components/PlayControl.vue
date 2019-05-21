@@ -50,24 +50,24 @@
     <div class="right-items">
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <i class="icon icon-playlist"></i>
+          <i class="icon icon-playlist pointer"></i>
         </div>
       </div>
 
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <i class="icon icon-screen-desktop"></i>
+          <i class="icon icon-screen-desktop pointer"></i>
         </div>
       </div>
 
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <i class="icon icon-equalizer"></i>
+          <i class="icon icon-equalizer pointer"></i>
         </div>
       </div>
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <i class="icon icon-loop"></i>
+          <i class="icon pointer" :class="playType[currentPlayType%playType.length]" @click="changePlayType"></i>
         </div>
       </div>
 
@@ -85,6 +85,20 @@
   export default {
     components:{
       VolumeControl
+    },
+    data(){
+      return {
+        currentPlayType:0,
+        playType:[
+          'icon-loop','icon-shuffle'
+        ]
+      }
+    },
+    methods:{
+      changePlayType(){
+        this.currentPlayType ++
+
+      }
     }
   }
 </script>
@@ -204,6 +218,10 @@
     margin: auto;
     padding: 0 12px;
     font-size: 14px;
+  }
+
+  .pointer {
+    cursor: pointer;
   }
 
 </style>
