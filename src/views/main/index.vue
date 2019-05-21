@@ -23,14 +23,16 @@
       <!--右边内容-->
       <div class="right-side">
         <!--顶部菜单-->
-        <div class="top-bar"></div>
+        <div class="top-bar">
+          <TopBar/>
+        </div>
         <!--具体内容容器-->
         <div class="router-view"></div>
       </div>
     </div>
     <!--控制条-->
     <div class="view-bottom-container">
-
+      <PlayControl/>
     </div>
 
   </div>
@@ -38,9 +40,11 @@
 
 <script>
   import Menu from '@/components/menu/Menu'
+  import PlayControl from '@/components/PlayControl'
+  import TopBar from '@/components/TopBar'
   export default {
     components:{
-      Menu
+      Menu,TopBar,PlayControl
     }
   }
 </script>
@@ -65,7 +69,6 @@
   }
 
   .view-bottom-container {
-    background: blue;
     width: 100%;
     height: 70px;
     border-bottom-left-radius: 10px;
@@ -79,6 +82,7 @@
     float: left;
     overflow-x: hidden;
     overflow-y: auto;
+    background: #e4e6e5;
   }
 
   .right-side{
@@ -91,8 +95,8 @@
 
   .top-bar {
     width: 100%;
-    background: black;
     height: 74px;
+    background: white;
     border-top-right-radius: 10px;
   }
 

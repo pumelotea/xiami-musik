@@ -10,7 +10,7 @@
     <MenuItem :name="'我的收藏'" :iconClass="'icon-heart'"/>
     <MenuItem :name="'已购音乐'" :iconClass="'icon-bag'"/>
     <div class="menu-title">我的歌单</div>
-    <MenuItem :name="'新建歌单'" :iconClass="''"/>
+    <MenuItem :name="'新建歌单'" :iconClass="'icon-note'"/>
     <div class="menu-title">收藏的歌单</div>
   </div>
 </template>
@@ -28,7 +28,7 @@
   .menu-title{
     font-size: 13px;
     padding-left: 25px;
-    color: #a8a8a8;
+    color: #919191;
     font-weight: 400;
     margin-bottom: 10px;
     margin-top: 14px;
