@@ -9,17 +9,13 @@
 - 音量控制组件实现
 
 
-## Project setup
+## 运行
 ```
 yarn install
 ```
-
-### Compiles and hot-reloads for development
 ```
 yarn run serve
 ```
-
-### Compiles and minifies for production
 ```
 yarn run build
 ```
