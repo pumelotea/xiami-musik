@@ -51,7 +51,7 @@
         //计算出音量滑条距离屏幕左侧的x值
         lw = el.offsetLeft + lw
         //利用点击事件获取当前元素到屏幕左侧的x，然后简单计算下
-        this.progress = (e1.clientX - lw) / 80 * 100
+        this.progress = parseInt((e1.clientX - lw) / 80 * 100)
 
 
         let that = this
@@ -61,6 +61,7 @@
 
             let n = (e.screenX - old.screenX) / 80 * 100
             let v = that.progress + n
+            v = parseInt(v)
             if (v <= 100 && v >= 0) {
               that.progress = v
             }

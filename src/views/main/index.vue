@@ -71,6 +71,7 @@
   .view-bottom-container {
     width: 100%;
     height: 70px;
+    -webkit-backdrop-filter: blur(10px);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -82,13 +83,13 @@
     float: left;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #e4e6e5;
+    background: rgba(228, 230, 229, 0.8);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .right-side{
     width: 720px;
     height: 100%;
-    background: deepskyblue;
     float: left;
     border-top-right-radius: 10px;
   }

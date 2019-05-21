@@ -1,8 +1,8 @@
 <template>
-  <div class="menu-wrap">
-    <div class="menu-item">
-      <span class="menu-icon">
-        <i class="icon" :class="iconClass"></i>
+  <div class="menu-wrap"  @mousedown="$emit('mousedown',$event)">
+    <div class="menu-item" :class="{'menu-wrap-active':mactive}">
+      <span class="menu-icon" :class="{'active':mactive}">
+        <i class="icon" :class="iconClass" ></i>
        </span>
       <span>{{name}}</span>
     </div>
@@ -21,6 +21,10 @@
         type: String,
         require: false,
         default: 'icon-screen-desktop'
+      },
+      mactive:{
+        type: Boolean,
+        default:false
       }
     }
   }
@@ -46,11 +50,21 @@
     border-radius: 3px;
   }
 
+  .active{
+    color: white;
+  }
+
   .menu-wrap
   :active,
   :focus
   {
-    color: white !important;
+    color: white;
     background: rgba(255, 50, 0, 0.9);
   }
+
+  .menu-wrap-active{
+    color: white;
+    background: rgba(255, 50, 0, 0.9);
+  }
+
 </style>

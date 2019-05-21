@@ -1,7 +1,7 @@
 <template>
   <div class="play-control">
     <div class="left-item">
-      <img class="music-pic" src="texture/music-pic/dlrb.png"/>
+      <img class="music-pic" src="texture/music-pic/dlrb.png" draggable="false"/>
     </div>
     <div class="left-item">
       <div style="margin: auto">
@@ -105,7 +105,7 @@
 
 <style scoped>
   .play-control {
-    background: #ededed;
+    background: rgba(252, 252, 252, 0.7);
     height: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
