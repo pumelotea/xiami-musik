@@ -67,7 +67,7 @@
       </div>
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <i class="icon pointer" :class="playType[currentPlayType%playType.length]" @click="changePlayType"></i>
+          <div class="pointer" :class="playType[currentPlayType%playType.length]" @click="changePlayType"></div>
         </div>
       </div>
 
@@ -90,7 +90,7 @@
       return {
         currentPlayType:0,
         playType:[
-          'icon-loop','icon-shuffle'
+          'loop1','loop2','random'
         ]
       }
     },
@@ -222,6 +222,27 @@
 
   .pointer {
     cursor: pointer;
+  }
+
+  .loop1{
+    background: url("/texture/icon/loop1.png");
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .loop2 {
+    background: url("/texture/icon/loop2.png");
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .random{
+    background: url("/texture/icon/random.png");
+    background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
   }
 
 </style>
