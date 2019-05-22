@@ -1,10 +1,9 @@
 <template>
-
+  <div style="text-align: left">music-list</div>
 </template>
 
 <script>
   export default {
-    name: "index"
   }
 </script>
 

@@ -27,7 +27,9 @@
           <TopBar/>
         </div>
         <!--具体内容容器-->
-        <div class="router-view"></div>
+        <div class="router-view">
+          <router-view/>
+        </div>
       </div>
     </div>
     <!--控制条-->
@@ -105,6 +107,7 @@
     width: 100%;
     height: calc(100% - 74px);
     background: cornflowerblue;
+    overflow: auto;
   }
 
 </style>

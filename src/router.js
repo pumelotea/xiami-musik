@@ -8,7 +8,14 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/main')
+      component: () => import('@/views/main'),
+      children:[
+        {
+          path: '/music-list',
+          name: 'music-list',
+          component: () => import('@/views/music-list'),
+        }
+      ]
     }
   ]
 })
