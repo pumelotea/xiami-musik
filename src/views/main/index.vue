@@ -106,7 +106,7 @@
   .router-view{
     width: 100%;
     height: calc(100% - 74px);
-    background: cornflowerblue;
+    /*background: cornflowerblue;*/
     overflow: auto;
   }
 

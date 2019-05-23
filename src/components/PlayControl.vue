@@ -216,7 +216,7 @@
 
   .right-fun-icon-wrap {
     margin: auto;
-    padding: 0 12px;
+    padding: 0 10px;
     font-size: 14px;
   }
 
