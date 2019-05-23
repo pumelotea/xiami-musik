@@ -14,6 +14,12 @@
 
 <script>
   export default {
+    props:{
+      audio:{
+        type:HTMLAudioElement,
+        require:true
+      }
+    },
     data() {
       return {
         disabled: false,
@@ -26,8 +32,11 @@
       progress(val) {
         if (val === 0) {
           this.disabled = true
+          this.audio.muted= true
         } else {
           this.disabled = false
+          this.audio.muted= false
+          this.audio.volume  = this.progress/100
         }
       }
     },
