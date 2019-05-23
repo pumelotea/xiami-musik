@@ -14,8 +14,8 @@
         <div class="tab-line" :style="'transform: translateX('+58*currentTab+'px)'"></div>
       </div>
       <!--list-->
-      <div class="list" v-for="i in 4">
-        <div class="list-item" v-for="i in 4">
+      <div class="list" v-for="i  in 4" :key="i">
+        <div class="list-item"  v-for="k in 4" :key="'_'+k">
           <div class="music-thumb-padder" >
             <div class="music-thumb-wrap">
               <img class="music-thumb" src="/texture/music-pic/1.jpg"/>
