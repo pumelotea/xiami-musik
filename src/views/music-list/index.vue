@@ -226,7 +226,7 @@
   .music-thumb {
     width: 141px;
     height: 141px;
-    border-radius: 2px;
+    border-radius: 3px;
     z-index: 11;
     position: absolute;
     margin: auto;
