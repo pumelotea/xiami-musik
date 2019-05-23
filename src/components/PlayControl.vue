@@ -35,8 +35,9 @@
           </div>
         </div>
         <div class="play-icon-wrap">
-          <div class="play-btn play-round-btn ">
-            <i style="margin-left: 3px" class="icon icon-control-play "></i>
+          <div class="play-btn play-round-btn " @click="togglePlay">
+            <i class="icon" :class="isPlaying?'icon-control-pause':'icon-control-play'"
+               :style="isPlaying?'':'margin-left: 3px'"></i>
           </div>
         </div>
         <div class="play-icon-wrap">
@@ -73,32 +74,94 @@
 
       <div class="right-item">
         <div class="right-fun-icon-wrap">
-          <VolumeControl/>
+          <VolumeControl :audio="audio"/>
         </div>
       </div>
+    </div>
+    <audio id="music-player" src="/music/锦零-空山新雨后.mp3"></audio>
+    <div class="progress-bar bg" :style="`width:${progress}px`"></div>
+    <div class="play-time" :style="`transform: translateX(${progress}px)`">
+      <span>{{currentTime}}</span> /
+      <span>{{totalDuration}}</span>
     </div>
   </div>
 </template>
 
 <script>
   import VolumeControl from '@/components/VolumeControl'
+
   export default {
-    components:{
+    components: {
       VolumeControl
     },
-    data(){
+    data() {
       return {
-        currentPlayType:0,
-        playType:[
-          'loop1','loop2','random'
-        ]
+        base: 900 - 70,
+        currentPlayType: 0,
+        playType: [
+          'loop1', 'loop2', 'random'
+        ],
+        audio: null,
+        isPlaying: false,
+        timer: null,
+        progress: 0,
+        totalDuration: '0:00',
+        currentTime: '0:00'
       }
     },
-    methods:{
-      changePlayType(){
-        this.currentPlayType ++
-
+    methods: {
+      changePlayType() {
+        this.currentPlayType++
+      },
+      initPlayer() {
+        this.audio = document.getElementById('music-player')
+      },
+      togglePlay() {
+        if (this.audio.paused) {
+          this.play()
+        } else {
+          this.pause()
+        }
+      },
+      durationFormat(time) {
+        //分钟
+        let minute = time / 60;
+        let minutes = parseInt(minute);
+        // if (minutes < 10) {
+        //   minutes = "0" + minutes;
+        // }
+        //秒
+        let second = time % 60;
+        let seconds = Math.round(second);
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        return minutes + ':' + seconds
+      },
+      play() {
+        this.isPlaying = true
+        this.audio.play()
+        this.totalDuration = this.durationFormat(this.audio.duration)
+        let lasttime = 0
+        this.timer = setInterval(() => {
+          if (this.audio.currentTime > lasttime) {
+            let v = (this.base * (this.audio.currentTime / this.audio.duration)).toFixed(2)
+            this.progress = v
+            this.currentTime = this.durationFormat(this.audio.currentTime)
+          }
+          lasttime = this.audio.currentTime
+        }, 50)
+      },
+      pause() {
+        this.isPlaying = false
+        this.audio.pause()
+        if (this.timer) {
+          clearInterval(this.timer)
+        }
       }
+    },
+    mounted() {
+      this.initPlayer()
     }
   }
 </script>
@@ -204,6 +267,10 @@
     cursor: pointer;
   }
 
+  .play-btn:active {
+    opacity: 0.8;
+  }
+
   .play-round-btn {
     border-radius: 50%;
     background: rgba(255, 50, 0, 0.9);
@@ -224,7 +291,7 @@
     cursor: pointer;
   }
 
-  .loop1{
+  .loop1 {
     background: url("/texture/icon/loop1.png");
     background-size: 25px 25px;
     width: 25px;
@@ -238,11 +305,40 @@
     height: 25px;
   }
 
-  .random{
+  .random {
     background: url("/texture/icon/random.png");
     background-size: 25px 25px;
     width: 25px;
     height: 25px;
+  }
+
+  .play-time {
+    width: 70px;
+    height: 15px;
+    background: black;
+    position: absolute;
+    color: #939393;
+    font-size: 10px;
+    border-radius: 9px;
+    padding: 1px;
+    text-align: center;
+    opacity: 0.8;
+    top: -9px;
+    z-index: 20;
+    box-shadow: 2px 3px 20px 0px black;
+  }
+
+  .progress-bar {
+    height: 2px;
+    position: absolute;
+
+  }
+
+  .bg{
+    background: -webkit-linear-gradient(left, #ffd5d6, #fc4933); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #ffd5d6, #fc4933); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #ffd5d6, #fc4933); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #ffd5d6 , #fc4933); /* 标准的语法 */
   }
 
 </style>
