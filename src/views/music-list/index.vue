@@ -14,121 +14,40 @@
         <div class="tab-line" :style="'transform: translateX('+58*currentTab+'px)'"></div>
       </div>
       <!--list-->
-      <div class="list">
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/1.jpg"/>
+      <div class="list" v-for="i in 4">
+        <div class="list-item" v-for="i in 4">
+          <div class="music-thumb-padder" >
+            <div class="music-thumb-wrap">
+              <img class="music-thumb" src="/texture/music-pic/1.jpg"/>
+              <div class="music-hover">
+                <div class="music-hover-item">
+                  <a class="pointer" style="margin: auto">
+                    <i class="icon icon-heart"></i>
+                  </a>
+                </div>
+                <div class="music-hover-item">
+                  <div class="play-btn play-round-btn pointer" style="margin: auto">
+                    <i style="margin-left: 3px" class="icon icon-control-play "></i>
+                  </div>
+                </div>
+                <div class="music-hover-item">
+                  <a class="ellipsis-icon2 pointer" style="margin: auto"></a>
+                </div>
+              </div>
+            </div>
             <div class="music-thumb-d1"></div>
             <div class="music-thumb-d2"></div>
+            <div class="music-play-count">
+              <i class="fa fa-caret-right"></i>
+              1000万
+            </div>
           </div>
           <div class="music-list-title">无可奈何花落去</div>
           <div class="music-list-auth">矩尹</div>
 
         </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/2.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/3.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/4.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
       </div>
-      <div class="list">
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/1.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/2.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/3.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/4.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-      </div>
-      <div class="list">
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/1.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/2.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/3.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-        <div class="list-item">
-          <div class="music-thumb-padder">
-            <img class="music-thumb" src="/texture/music-pic/4.jpg"/>
-            <div class="music-thumb-d1"></div>
-            <div class="music-thumb-d2"></div>
-          </div>
-          <div class="music-list-title">无可奈何花落去</div>
-          <div class="music-list-auth">矩尹</div>
-        </div>
-      </div>
+
       <div class="pagination">
         <div style="display: flex;margin: auto">
           <a class="arrow-left-icon pointer" style="margin-right: 20px"></a>
@@ -151,6 +70,11 @@
     data() {
       return {
         currentTab: 0,
+      }
+    },
+    methods: {
+      hover() {
+
       }
     }
   }
@@ -206,7 +130,7 @@
     transition: 0.3s;
   }
 
-  .tab-item :hover {
+  .tab-item:hover {
     color: rgba(255, 50, 0, 1);
     padding-top: 10px;
   }
@@ -227,13 +151,12 @@
     width: 141px;
     height: 141px;
     border-radius: 3px;
-    z-index: 11;
+    z-index: 12;
     position: absolute;
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
     border: 1px solid #eeeeee;
-
   }
 
   .music-thumb-padder {
@@ -268,28 +191,44 @@
     border: 1px solid #e8e8e8;
   }
 
-  .music-list-title{
+  .music-list-title {
     font-size: 14px;
     font-weight: bold;
     color: #414141;
+    cursor: pointer;
   }
 
-  .music-list-auth{
+  .music-list-auth {
     font-size: 10px;
     color: #a7a7a7;
     font-weight: 500;
   }
 
-  .pagination{
+  .music-play-count {
+    font-size: 10px;
+    color: white;
+    font-weight: 500;
+    position: absolute;
+    top: 15px;
+    z-index: 12;
+    right: 20px;
+    background: url("/texture/qipao.png");
+    background-size: 100% 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+  }
+
+  .pagination {
     display: flex;
   }
 
-  .pagination .actived{
+  .pagination .actived {
     color: rgba(255, 50, 0, 1);
     font-weight: 800;
   }
 
-  .page-num{
+  .page-num {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 14px;
@@ -298,36 +237,91 @@
     line-height: 18px;
   }
 
-  .page-num:hover{
+  .page-num:hover {
     color: rgba(255, 50, 0, 1);
   }
 
-  .ellipsis-icon{
+  .ellipsis-icon {
     background: url('/texture/icon/ellipsis.png');
     width: 18px;
     height: 18px;
     background-size: 18px 18px;
-    float:left;
+    float: left;
   }
 
-  .arrow-left-icon{
+
+  .ellipsis-icon2 {
+    background: url('/texture/icon/ellipsis.png');
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+    float: left;
+  }
+
+
+  .arrow-left-icon {
     background: url('/texture/icon/arrow-left.png');
     width: 18px;
     height: 18px;
     background-size: 18px 18px;
-    float:left;
+    float: left;
   }
 
-  .arrow-right-icon{
+  .arrow-right-icon {
     background: url('/texture/icon/arrow-right.png');
     width: 18px;
     height: 18px;
     background-size: 18px 18px;
-    float:left;
+    float: left;
   }
 
-  .pointer{
+  .pointer {
     cursor: pointer;
+  }
+
+  .music-hover {
+    width: 141px;
+    height: 141px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 13;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 3px;
+    border: 1px solid #e8e8e8;
+    display: none;
+  }
+
+  .music-thumb-wrap{
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+
+  .music-thumb-wrap:hover .music-hover{
+    display: flex;
+  }
+
+
+  .music-hover-item {
+    margin: auto;
+    color: white;
+    width: 30%;
+    text-align: center;
+    display: flex;
+  }
+
+
+  .play-round-btn {
+    border-radius: 50%;
+    background: rgba(255, 50, 0, 0.9);
+    width: 20px;
+    height: 20px;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
   }
 
 </style>
