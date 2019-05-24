@@ -36,8 +36,10 @@
         } else {
           this.disabled = false
           this.audio.muted= false
-          this.audio.volume  = this.progress/100
+
         }
+        this.audio.volume  = val/100
+        console.log('volume:',this.audio.volume)
       }
     },
     methods: {

@@ -113,7 +113,11 @@
     },
     watch: {
       progress(val) {
-        // console.log(val)
+        //进度到达1后自动暂停
+        if (val === 1) {
+          this.pause()
+          //根据播放类型执行
+        }
       }
     },
     methods: {
