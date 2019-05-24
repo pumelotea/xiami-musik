@@ -1,5 +1,5 @@
 <template>
-  <div class="play-control">
+  <div class="play-control" ref="playControl">
     <div class="left-item">
       <img class="music-pic" src="texture/music-pic/dlrb.png" draggable="false"/>
     </div>
@@ -78,9 +78,10 @@
         </div>
       </div>
     </div>
-    <audio id="music-player" src="/music/锦零-空山新雨后.mp3"></audio>
-    <div class="progress-bar bg" :style="`width:${progress}px`"></div>
-    <div class="play-time" :style="`transform: translateX(${progress}px)`">
+    <audio style="display: none" id="music-player" src="/music/锦零-空山新雨后.mp3"></audio>
+    <div class="progress-bar bg" :style="`width:${base*progress}px`"></div>
+    <div ref="playTime" @mousedown="draggingMove($event)" class="play-time"
+         :style="`transform: translateX(${base*progress}px)`">
       <span>{{currentTime}}</span> /
       <span>{{totalDuration}}</span>
     </div>
@@ -96,17 +97,23 @@
     },
     data() {
       return {
-        base: 900 - 70,
+        base: 0,
         currentPlayType: 0,
         playType: [
           'loop1', 'loop2', 'random'
         ],
         audio: null,
         isPlaying: false,
+        isDragging:false,
         timer: null,
         progress: 0,
         totalDuration: '0:00',
         currentTime: '0:00'
+      }
+    },
+    watch: {
+      progress(val) {
+        // console.log(val)
       }
     },
     methods: {
@@ -115,6 +122,9 @@
       },
       initPlayer() {
         this.audio = document.getElementById('music-player')
+        let c1 = this.$refs.playControl.clientWidth
+        let c2 = this.$refs.playTime.clientWidth
+        this.base = c1 - c2
       },
       togglePlay() {
         if (this.audio.paused) {
@@ -144,8 +154,9 @@
         this.totalDuration = this.durationFormat(this.audio.duration)
         let lasttime = 0
         this.timer = setInterval(() => {
-          if (this.audio.currentTime > lasttime) {
-            let v = (this.base * (this.audio.currentTime / this.audio.duration)).toFixed(2)
+
+          if (this.audio.currentTime > lasttime && !this.isDragging) {
+            let v = (this.audio.currentTime / this.audio.duration)
             this.progress = v
             this.currentTime = this.durationFormat(this.audio.currentTime)
           }
@@ -157,6 +168,55 @@
         this.audio.pause()
         if (this.timer) {
           clearInterval(this.timer)
+        }
+      },
+      draggingMove(e1) {
+        let that = this
+        this.isDragging = true
+        let el = this.$refs.playControl
+        let el2 = this.$refs.playTime
+        //计算出左侧边距的宽度
+        let lw = (document.documentElement.clientWidth - 900) / 2.0
+        if (lw < 0) {
+          lw = 0
+        }
+        //计算出滑条距离屏幕左侧的x值
+        lw = el.offsetLeft + lw
+        //利用点击事件获取当前元素到屏幕左侧的x，然后简单计算下
+        // this.progress = (e1.clientX - lw) / 80.0 * 100
+        let old
+        document.onmousemove = function (e) {
+          if (old) {
+            //计算增量
+            let n = (e.screenX - old.screenX) / that.base
+            //累加
+            let v = that.progress + n
+            //限定边界范围
+            if (v > 1) {
+              v = 1
+            }
+            if (v < 0) {
+              v = 0
+            }
+            let leftX = e.clientX
+            let rightX = e.clientX - el2.clientWidth
+            if (leftX >= lw && rightX <= lw + that.base) {
+              that.progress = v
+            } else if (rightX > lw + that.base) {
+              that.progress = 1
+            } else if (leftX < lw) {
+              that.progress = 0
+            }
+            //刷新进度标签
+            that.currentTime = that.durationFormat(that.audio.duration * that.progress)
+          }
+          old = e
+        }
+        document.onmouseup = function (e) {
+          that.isDragging = false
+          document.onmousemove = null
+          //设置播放进度为拖动的进度
+          that.audio.currentTime =  that.audio.duration * that.progress
         }
       }
     },
@@ -326,19 +386,20 @@
     top: -9px;
     z-index: 20;
     box-shadow: 2px 3px 20px 0px black;
+    cursor: default;
   }
 
   .progress-bar {
     height: 2px;
     position: absolute;
-
+    z-index: 21;
   }
 
-  .bg{
+  .bg {
     background: -webkit-linear-gradient(left, #ffd5d6, #fc4933); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(right, #ffd5d6, #fc4933); /* Opera 11.1 - 12.0 */
     background: -moz-linear-gradient(right, #ffd5d6, #fc4933); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #ffd5d6 , #fc4933); /* 标准的语法 */
+    background: linear-gradient(to right, #ffd5d6, #fc4933); /* 标准的语法 */
   }
 
 </style>
