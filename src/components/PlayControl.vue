@@ -222,7 +222,6 @@
           document.onmousemove = null
           //设置播放进度为拖动的进度
           that.audio.currentTime =  that.audio.duration * that.progress
-          console.log(11)
         }
       }
     },
