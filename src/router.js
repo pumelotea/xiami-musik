@@ -11,9 +11,19 @@ export default new Router({
       component: () => import('@/views/main'),
       children:[
         {
+          path: '/find-music',
+          name: 'find-music',
+          component: () => import('@/views/find-music'),
+        },
+        {
           path: '/music-list',
           name: 'music-list',
           component: () => import('@/views/music-list'),
+        },
+        {
+          path: '/billboard',
+          name: 'billboard',
+          component: () => import('@/views/billboard'),
         }
       ]
     }

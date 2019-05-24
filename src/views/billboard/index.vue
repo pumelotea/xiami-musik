@@ -1,5 +1,5 @@
 <template>
-  <div>top-list</div>
+  <div>billboard</div>
 </template>
 
 <script>

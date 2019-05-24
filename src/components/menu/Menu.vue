@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="menu-title" >音乐库</div>
-    <MenuItem :name="'发现音乐'" :iconClass="'icon-music-tone-alt'" @mousedown="current='发现音乐'" :mactive="current==='发现音乐'"/>
-    <MenuItem :name="'歌单'" :iconClass="'icon-playlist'"  @mousedown="current='歌单'" :mactive="current==='歌单'"/>
-    <MenuItem :name="'排行榜'" :iconClass="'icon-bar-chart'"  @mousedown="current='排行榜'" :mactive="current==='排行榜'"/>
+    <MenuItem :name="'发现音乐'" :iconClass="'icon-music-tone-alt'" @mousedown="current='发现音乐';$router.push('/find-music')" :mactive="current==='发现音乐'"/>
+    <MenuItem :name="'歌单'" :iconClass="'icon-playlist'"  @mousedown="current='歌单';$router.push('/music-list')" :mactive="current==='歌单'"/>
+    <MenuItem :name="'排行榜'" :iconClass="'icon-bar-chart'"  @mousedown="current='排行榜';$router.push('/billboard')" :mactive="current==='排行榜'"/>
     <div class="menu-title">我的音乐</div>
     <MenuItem :name="'本地歌曲'" :iconClass="'icon-folder-alt'"  @mousedown="current='本地歌曲'" :mactive="current==='本地歌曲'"/>
     <MenuItem :name="'最近播放'" :iconClass="'icon-earphones'"  @mousedown="current='最近播放'" :mactive="current==='最近播放'"/>
