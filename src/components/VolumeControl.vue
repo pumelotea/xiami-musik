@@ -38,8 +38,11 @@
           this.audio.muted= false
 
         }
+       setTimeout(()=>{
+       },10)
         this.audio.volume  = val/100
-        console.log('volume:',this.audio.volume)
+
+        // console.log('volume:',this.audio.volume)
       }
     },
     methods: {
@@ -90,12 +93,14 @@
           }
           old = e
         }
+
+        document.onmouseup = function () {
+          document.onmousemove = null
+        }
       }
     },
     mounted() {
-      document.onmouseup = function () {
-        document.onmousemove = null
-      }
+
     }
   }
 </script>
