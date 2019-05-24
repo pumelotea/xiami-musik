@@ -27,7 +27,7 @@
           <TopBar/>
         </div>
         <!--具体内容容器-->
-        <div class="router-view">
+        <div class="router-view" :class="{'overflow-auto':$store.state.scroll,'overflow-hide':!$store.state.scroll}">
           <router-view/>
         </div>
       </div>
@@ -107,7 +107,14 @@
     width: 100%;
     height: calc(100% - 74px);
     /*background: cornflowerblue;*/
+  }
+
+  .overflow-auto{
     overflow: auto;
+  }
+
+  .overflow-hide{
+    overflow: hidden;
   }
 
 </style>
