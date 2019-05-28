@@ -8,7 +8,7 @@
     <!--content-->
     <div>
       <!--tabs-->
-      <Tab :currentTab="currentTab"/>
+      <Tab/>
       <!--list-->
       <div class="list" v-for="i  in 4" :key="i">
         <MusicThumb v-for="i  in 4" />
@@ -29,7 +29,6 @@
     },
     data() {
       return {
-        currentTab: 0,
         showCategoryPanel:false
       }
     },

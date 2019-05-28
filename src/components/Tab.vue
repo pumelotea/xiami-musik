@@ -10,11 +10,9 @@
 
 <script>
   export default {
-    name: "Tab",
-    props:{
-      currentTab: {
-        type:Number,
-        default:0
+    data(){
+      return{
+        currentTab:0
       }
     }
   }
