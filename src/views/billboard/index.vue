@@ -2,7 +2,7 @@
   <div class="padder">
     <div class="official-board">1</div>
     <div class="board2">
-      <div class="list" v-for="x in 2">
+      <div class="list-2" v-for="x in 2">
         <div class="list-item" style="padding-right: 20px;">
           <BillboardItem2/>
         </div>
@@ -10,10 +10,18 @@
           <BillboardItem2/>
         </div>
       </div>
+      <div class="list-2">
+        <div class="list-item" style="padding-right: 20px;">
+          <BillboardItem2/>
+        </div>
+        <div class="list-item">
+        </div>
+      </div>
     </div>
+
     <div class="board3">
       <div class="title">全球媒体榜</div>
-      <div class="list" v-for="x in 2">
+      <div class="list-1" v-for="x in 2">
         <BillboardItem v-for="x in 4"/>
       </div>
     </div>
@@ -58,10 +66,16 @@
     margin-top: 50px;
   }
 
-  .list {
+  .list-1 {
     position: relative;
     display: flex;
     margin-bottom: 60px;
+  }
+
+  .list-2{
+    position: relative;
+    display: flex;
+    margin-bottom: 40px;
   }
 
   .list-item{
