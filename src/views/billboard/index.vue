@@ -1,7 +1,16 @@
 <template>
   <div class="padder">
     <div class="official-board">1</div>
-    <div class="board2">2</div>
+    <div class="board2">
+      <div class="list" v-for="x in 2">
+        <div class="list-item" style="padding-right: 20px;">
+          <BillboardItem2/>
+        </div>
+        <div class="list-item">
+          <BillboardItem2/>
+        </div>
+      </div>
+    </div>
     <div class="board3">
       <div class="title">全球媒体榜</div>
       <div class="list" v-for="x in 2">
@@ -13,9 +22,10 @@
 
 <script>
   import BillboardItem from '@/components/BillboardItem'
+  import BillboardItem2 from '@/components/BillboardItem2'
   export default {
     components:{
-      BillboardItem
+      BillboardItem,BillboardItem2
     }
   }
 </script>
@@ -40,19 +50,22 @@
 
   .board2 {
     width: 100%;
-    height: 400px;
-    background: deepskyblue;
+    margin-top: 50px;
   }
 
   .board3 {
     width: 100%;
-    height: 400px;
+    margin-top: 50px;
   }
 
   .list {
     position: relative;
     display: flex;
     margin-bottom: 60px;
+  }
+
+  .list-item{
+    width: 50%;
   }
 
 
